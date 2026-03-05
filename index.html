@@ -133,15 +133,20 @@ body {
 .navbar .nav-link:hover, .navbar .nav-link.active { color:#fbbf24!important; background:rgba(245,158,11,0.1); }
 
 .nav-icon-btn {
-  width:42px; height:42px; border-radius:12px;
-  background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1);
-  color:rgba(245,230,204,0.8); display:inline-flex; align-items:center; justify-content:center;
-  transition:all .3s ease; position:relative;
+  width:44px; height:44px; border-radius:14px;
+  background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12);
+  color:rgba(245,230,204,0.85); display:inline-flex; align-items:center; justify-content:center;
+  transition:all .3s cubic-bezier(0.4,0,0.2,1); position:relative;
+  font-size:1.05rem;
 }
 .nav-icon-btn:hover {
-  background:rgba(245,158,11,0.2); border-color:rgba(245,158,11,0.4);
-  color:#fbbf24; transform:translateY(-2px);
-  box-shadow:0 8px 25px rgba(245,158,11,0.3);
+  background:linear-gradient(135deg,rgba(245,158,11,0.25),rgba(244,63,94,0.15));
+  border-color:rgba(245,158,11,0.4);
+  color:#fbbf24; transform:translateY(-3px) scale(1.05);
+  box-shadow:0 12px 30px rgba(245,158,11,0.35);
+}
+.nav-icon-btn:active {
+  transform:translateY(-1px) scale(0.98);
 }
 
 /* ============================================
@@ -515,16 +520,18 @@ body {
   transform: scale(1.05);
 }
 
-.cart-badge:{
-  position:absolute; top:-6px; right:-6px;
+.cart-badge {
+  position:absolute; top:-4px; right:-4px;
   background:linear-gradient(135deg, #f43f5e, #e11d48);
-  color:#fff; border-radius:50%; width:20px; height:20px;
-  font-size:.7rem; display:flex; align-items:center; justify-content:center;
+  color:#fff; border-radius:50%; width:22px; height:22px;
+  font-size:.75rem; display:flex; align-items:center; justify-content:center;
   font-weight:700; animation:badge-pulse 2s infinite;
+  box-shadow:0 3px 10px rgba(244,63,94,0.4);
+  border:2px solid rgba(15,10,0,0.8);
 }
 @keyframes badge-pulse {
   0%,100% { transform:scale(1); }
-  50% { transform:scale(1.1); }
+  50% { transform:scale(1.15); }
 }
 
 /* BUTTONS */
@@ -1114,11 +1121,13 @@ body {
         </div>
         
         <a href="#" class="nav-icon-btn d-lg-none"><i class="fas fa-search"></i></a>
-        <a href="#" class="nav-icon-btn"><i class="fas fa-heart"></i></a>
-        <a href="#" class="nav-icon-btn position-relative" onclick="showPage('checkout')">
-          <i class="fas fa-shopping-bag"></i>
-          <span class="cart-badge" id="cartCount">3</span>
-        </a>
+        <div class="nav-icons-group d-flex align-items-center gap-2">
+          <a href="#" class="nav-icon-btn" title="Wishlist"><i class="fas fa-heart"></i></a>
+          <a href="#" class="nav-icon-btn position-relative" title="Cart" onclick="showPage('checkout')">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="cart-badge" id="cartCount">3</span>
+          </a>
+        </div>
         
         <!-- Auth Buttons -->
         <a href="#" class="btn btn-glass btn-sm d-none d-md-block" style="padding:.5rem 1.2rem;">Login</a>
