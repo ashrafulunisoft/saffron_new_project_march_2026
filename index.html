@@ -836,6 +836,249 @@ body {
   animation: fadeIn 0.3s ease;
 }
 
+/* Admin Tabs */
+.admin-tab {
+  display: none;
+}
+.admin-tab.active {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+/* =====================
+   INVOICE PAGE
+   ===================== */
+.invoice-paper {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  padding: 3rem;
+  color: #333;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.invoice-header {
+  border-bottom: 2px solid #f59e0b;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.invoice-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.invoice-logo {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #f59e0b, #f43f5e);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #fff;
+}
+.invoice-brand-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+}
+.invoice-brand-sub {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0;
+}
+.invoice-company-info {
+  font-size: 0.85rem;
+  color: #555;
+  line-height: 1.6;
+}
+.invoice-company-info p {
+  margin: 0.25rem 0;
+}
+.invoice-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #f59e0b;
+  margin: 0 0 1rem;
+  letter-spacing: 2px;
+}
+.invoice-meta {
+  font-size: 0.9rem;
+  color: #555;
+}
+.invoice-meta p {
+  margin: 0.35rem 0;
+}
+.invoice-meta strong {
+  color: #333;
+}
+.invoice-box {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 1.25rem;
+  height: 100%;
+}
+.invoice-box-title {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #888;
+  margin-bottom: 0.75rem;
+}
+.invoice-customer-name {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+}
+.invoice-customer-info {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+}
+.invoice-table-wrapper {
+  margin: 2rem 0;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+.invoice-table thead {
+  background: linear-gradient(135deg, #f59e0b, #f43f5e);
+  color: #fff;
+}
+.invoice-table th {
+  padding: 1rem;
+  font-weight: 600;
+  text-align: left;
+}
+.invoice-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  color: #333;
+}
+.invoice-table tbody tr:last-child td {
+  border-bottom: none;
+}
+.invoice-table tbody tr:hover {
+  background: #fafafa;
+}
+.invoice-summary {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+.invoice-summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  font-size: 0.95rem;
+  color: #555;
+}
+.invoice-summary-row.total {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+.invoice-summary-row.total span:last-child {
+  color: #f59e0b;
+  font-size: 1.3rem;
+}
+.invoice-summary-row.total-paid {
+  font-weight: 600;
+  color: #059669;
+}
+.invoice-summary-row.balance {
+  font-weight: 600;
+  color: #1a1a1a;
+}
+.invoice-summary-divider {
+  height: 1px;
+  background: #ddd;
+  margin: 0.75rem 0;
+}
+.invoice-notes {
+  font-size: 0.9rem;
+  color: #555;
+}
+.invoice-notes h6 {
+  color: #1a1a1a;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.invoice-notes p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+.invoice-payment-info {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed #ddd;
+}
+.invoice-payment-info h6 {
+  margin-bottom: 0.75rem;
+}
+.invoice-payment-info p {
+  margin: 0.35rem 0;
+}
+.invoice-footer {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 2px solid #f59e0b;
+}
+.invoice-signature {
+  margin-top: 1rem;
+}
+.signature-line {
+  width: 200px;
+  height: 1px;
+  background: #333;
+  margin-bottom: 0.5rem;
+}
+.invoice-signature p {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0;
+}
+.invoice-stamp {
+  display: inline-block;
+  padding: 0.5rem 2rem;
+  border: 3px solid #059669;
+  color: #059669;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  transform: rotate(-5deg);
+  border-radius: 8px;
+}
+.invoice-footer-text {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #eee;
+  font-size: 0.85rem;
+  color: #888;
+}
+.invoice-footer-text p {
+  margin: 0.35rem 0;
+}
+@media print {
+  body { background: #fff !important; }
+  .navbar, .invoice-actions, .glass-card.mt-4 { display: none !important; }
+  .invoice-paper { box-shadow: none; padding: 0; max-width: 100%; }
+  .page { padding-top: 0 !important; }
+}
+
 /* Profile Stats */
 .profile-stat-card {
   background: rgba(255, 255, 255, 0.03);
@@ -2988,8 +3231,8 @@ body {
         <button class="btn btn-glow" onclick="showPage('home')">
           <i class="fas fa-home me-2"></i>Continue Shopping
         </button>
-        <button class="btn btn-glass" onclick="showPage('order-details')">
-          <i class="fas fa-receipt me-2"></i>View Details
+        <button class="btn btn-glass" onclick="showPage('invoice')">
+          <i class="fas fa-file-invoice me-2"></i>View Invoice
         </button>
       </div>
     </div>
@@ -3429,6 +3672,253 @@ body {
   </div>
 </div>
 
+<!-- ===================== PAGE: INVOICE ===================== -->
+<div class="page" id="page-invoice">
+  <div style="padding-top:100px;padding-bottom:50px;">
+    <div class="container">
+      <!-- Invoice Actions -->
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div class="d-flex align-items-center gap-3">
+          <button class="nav-icon-btn" onclick="showPage('order-details')" title="Back">
+            <i class="fas fa-arrow-left"></i>
+          </button>
+          <div>
+            <h4 style="color:#f5e6cc;margin:0;font-family:'Playfair Display',serif;">Invoice</h4>
+            <p style="color:rgba(245,230,204,0.5);margin:0;font-size:0.85rem;">#SAF-20250305</p>
+          </div>
+        </div>
+        <div class="d-flex gap-2">
+          <button class="btn btn-glass" onclick="window.print()">
+            <i class="fas fa-print me-2"></i>Print
+          </button>
+          <button class="btn btn-glow" onclick="showToast('✅ Invoice downloaded!')">
+            <i class="fas fa-download me-2"></i>Download PDF
+          </button>
+        </div>
+      </div>
+
+      <!-- Invoice Paper -->
+      <div class="invoice-paper" id="invoicePaper">
+        <!-- Invoice Header -->
+        <div class="invoice-header">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="invoice-brand">
+                <div class="invoice-logo">
+                  <i class="fas fa-cookie-bite"></i>
+                </div>
+                <div>
+                  <h3 class="invoice-brand-name">Saffron Sweets</h3>
+                  <p class="invoice-brand-sub">Premium Bakery & Confectionery</p>
+                </div>
+              </div>
+              <div class="invoice-company-info">
+                <p>123 Gulshan Avenue, Dhaka 1212</p>
+                <p>Phone: +880 1234-567890</p>
+                <p>Email: info@saffronsweets.com</p>
+              </div>
+            </div>
+            <div class="col-md-6 text-md-end">
+              <h2 class="invoice-title">INVOICE</h2>
+              <div class="invoice-meta">
+                <p><strong>Invoice #:</strong> INV-20250305-001</p>
+                <p><strong>Order #:</strong> SAF-20250305</p>
+                <p><strong>Date:</strong> March 5, 2026</p>
+                <p><strong>Due Date:</strong> March 5, 2026</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Invoice Body -->
+        <div class="invoice-body">
+          <!-- Billing Info -->
+          <div class="row mb-4">
+            <div class="col-md-6">
+              <div class="invoice-box">
+                <h6 class="invoice-box-title">Bill To:</h6>
+                <p class="invoice-customer-name">John Doe</p>
+                <p class="invoice-customer-info">
+                  123 Gulshan Avenue, House 45<br>
+                  Road 12, Gulshan, Dhaka 1212<br>
+                  Phone: +880 1234-567890<br>
+                  Email: john.doe@email.com
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6 text-md-end">
+              <div class="invoice-box">
+                <h6 class="invoice-box-title">Ship To:</h6>
+                <p class="invoice-customer-name">John Doe</p>
+                <p class="invoice-customer-info">
+                  123 Gulshan Avenue, House 45<br>
+                  Road 12, Gulshan, Dhaka 1212<br>
+                  Phone: +880 1234-567890
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Invoice Items -->
+          <div class="invoice-table-wrapper">
+            <table class="invoice-table">
+              <thead>
+                <tr>
+                  <th style="width:5%">#</th>
+                  <th style="width:45%">Item Description</th>
+                  <th style="width:15%" class="text-center">Qty</th>
+                  <th style="width:17.5%" class="text-end">Unit Price</th>
+                  <th style="width:17.5%" class="text-end">Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    <strong>Saffron Butter Cookies</strong>
+                    <br><small style="color:rgba(0,0,0,0.5);">Pack Size: 250g</small>
+                  </td>
+                  <td class="text-center">2</td>
+                  <td class="text-end">$4.99</td>
+                  <td class="text-end">$9.98</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>
+                    <strong>Dark Saffron Truffles</strong>
+                    <br><small style="color:rgba(0,0,0,0.5);">Box of 12 pieces</small>
+                  </td>
+                  <td class="text-center">1</td>
+                  <td class="text-end">$12.99</td>
+                  <td class="text-end">$12.99</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>
+                    <strong>Royal Saffron Cake</strong>
+                    <br><small style="color:rgba(0,0,0,0.5);">1kg, Premium Quality</small>
+                  </td>
+                  <td class="text-center">1</td>
+                  <td class="text-end">$24.99</td>
+                  <td class="text-end">$24.99</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>
+                    <strong>Saffron Almond Biscotti</strong>
+                    <br><small style="color:rgba(0,0,0,0.5);">Pack Size: 200g</small>
+                  </td>
+                  <td class="text-center">1</td>
+                  <td class="text-end">$5.49</td>
+                  <td class="text-end">$5.49</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>
+                    <strong>Saffron Milk</strong>
+                    <br><small style="color:rgba(0,0,0,0.5);">500ml bottle</small>
+                  </td>
+                  <td class="text-center">2</td>
+                  <td class="text-end">$3.99</td>
+                  <td class="text-end">$7.98</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Invoice Summary -->
+          <div class="row">
+            <div class="col-md-7">
+              <div class="invoice-notes">
+                <h6>Notes:</h6>
+                <p>Thank you for your business! All items are freshly prepared with premium quality ingredients. For any inquiries, please contact our customer support.</p>
+                <div class="invoice-payment-info">
+                  <h6>Payment Information:</h6>
+                  <p><strong>Method:</strong> Credit Card</p>
+                  <p><strong>Transaction ID:</strong> TXN-9876543210</p>
+                  <p><strong>Date:</strong> March 5, 2026 at 2:32 PM</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="invoice-summary">
+                <div class="invoice-summary-row">
+                  <span>Subtotal:</span>
+                  <span>$61.43</span>
+                </div>
+                <div class="invoice-summary-row">
+                  <span>Discount (30%):</span>
+                  <span style="color:#059669;">-$18.43</span>
+                </div>
+                <div class="invoice-summary-row">
+                  <span>Delivery Fee:</span>
+                  <span>$3.00</span>
+                </div>
+                <div class="invoice-summary-row">
+                  <span>Tax (5%):</span>
+                  <span>$3.07</span>
+                </div>
+                <div class="invoice-summary-divider"></div>
+                <div class="invoice-summary-row total">
+                  <span>Total Amount:</span>
+                  <span>$46.47</span>
+                </div>
+                <div class="invoice-summary-row total-paid">
+                  <span>Amount Paid:</span>
+                  <span>$46.47</span>
+                </div>
+                <div class="invoice-summary-row balance">
+                  <span>Balance Due:</span>
+                  <span>$0.00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Invoice Footer -->
+          <div class="invoice-footer">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="invoice-signature">
+                  <div class="signature-line"></div>
+                  <p>Authorized Signature</p>
+                </div>
+              </div>
+              <div class="col-md-6 text-md-end">
+                <div class="invoice-stamp">PAID</div>
+              </div>
+            </div>
+            <div class="invoice-footer-text">
+              <p>This is a computer-generated invoice and does not require a physical signature.</p>
+              <p><strong>Saffron Sweets & Bakery</strong> | www.saffronsweets.com | support@saffronsweets.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Actions -->
+      <div class="glass-card p-4 mt-4">
+        <h6 style="color:#fbbf24;margin-bottom:1rem;"><i class="fas fa-history me-2"></i>Related Actions</h6>
+        <div class="d-flex gap-2 flex-wrap">
+          <button class="btn btn-glass" onclick="showPage('order-details')">
+            <i class="fas fa-box me-2"></i>View Order Details
+          </button>
+          <button class="btn btn-glass" onclick="showToast('✅ Receipt sent to your email!')">
+            <i class="fas fa-envelope me-2"></i>Email Receipt
+          </button>
+          <button class="btn btn-glass" onclick="showToast('✅ Support ticket created!')">
+            <i class="fas fa-headset me-2"></i>Get Help
+          </button>
+          <button class="btn btn-glow" onclick="showPage('home')">
+            <i class="fas fa-shopping-bag me-2"></i>Continue Shopping
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <!-- ===================== PAGE: ORDER DETAILS ===================== -->
 <div class="page" id="page-order-details">
   <div style="padding-top:100px;padding-bottom:50px;">
@@ -3611,13 +4101,18 @@ body {
             <button class="btn btn-glow flex-fill" onclick="showToast('✅ Reorder successful! Items added to cart.')">
               <i class="fas fa-redo me-2"></i>Reorder
             </button>
-            <button class="btn btn-glass" onclick="window.print()">
-              <i class="fas fa-print"></i>
+            <button class="btn btn-glass" onclick="showPage('invoice')">
+              <i class="fas fa-file-invoice me-2"></i>Invoice
             </button>
           </div>
-          <button class="btn btn-outline-danger w-100 mt-2" style="border-color:rgba(244,63,94,0.4);color:#f43f5e;">
-            <i class="fas fa-headset me-2"></i>Need Help?
-          </button>
+          <div class="d-flex gap-2 mt-2">
+            <button class="btn btn-glass flex-fill" onclick="window.print()">
+              <i class="fas fa-print me-2"></i>Print
+            </button>
+            <button class="btn btn-outline-danger flex-fill" style="border-color:rgba(244,63,94,0.4);color:#f43f5e;">
+              <i class="fas fa-headset me-2"></i>Help
+            </button>
+          </div>
         </div>
       </div>
     </div>
