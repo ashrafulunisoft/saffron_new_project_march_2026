@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Roshogolla - Saffron Sweets & Bakery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --amber: #f59e0b; --amber-dark: #d97706; --amber-light: #fbbf24;
+            --rose: #f43f5e; --rose-dark: #e11d48; --gold: #ffd700;
+            --dark: #0f0a00; --dark-secondary: #1a0f05;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f0a00 0%, #1a0a00 20%, #0d0520 40%, #001a0d 60%, #1a0a00 80%, #0f0502 100%);
+            min-height: 100vh; color: #f5e6cc; padding: 2rem 0;
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb-glass {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 50px;
+            padding: 0.75rem 1.5rem;
+            margin-bottom: 2rem;
+            display: inline-flex;
+            list-style: none;
+            gap: 0.5rem;
+        }
+        .breadcrumb-glass li { display: flex; align-items: center; }
+        .breadcrumb-glass li:not(:last-child)::after {
+            content: '/'; margin: 0 0.75rem; color: rgba(245,230,204,0.3);
+        }
+        .breadcrumb-glass a { color: rgba(245,230,204,0.6); text-decoration: none; transition: all 0.3s ease; }
+        .breadcrumb-glass a:hover { color: #fbbf24; }
+        .breadcrumb-glass .active { color: #fbbf24; }
+        
+        /* Glass Cards */
+        .glass-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 24px;
+        }
+        
+        /* Product Gallery */
+        .product-gallery { position: sticky; top: 2rem; }
+        .main-image {
+            position: relative;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 24px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 450px;
+            overflow: hidden;
+        }
+        .main-image .prod-emoji { font-size: 12rem; transition: transform 0.5s ease; }
+        .main-image:hover .prod-emoji { transform: scale(1.05); }
+        .img-badge {
+            position: absolute;
+            top: 20px; left: 20px;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .badge-sale { background: linear-gradient(135deg, rgba(244,63,94,0.9), rgba(225,29,72,0.9)); color: #fff; }
+        .badge-bestseller { background: linear-gradient(135deg, rgba(245,158,11,0.9), rgba(251,191,36,0.9)); color: #fff; }
+        .wishlist-float {
+            position: absolute;
+            top: 20px; right: 20px;
+            width: 48px; height: 48px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(245,230,204,0.8);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+        .wishlist-float:hover {
+            background: rgba(244,63,94,0.2);
+            border-color: rgba(244,63,94,0.4);
+            color: #f43f5e;
+            transform: scale(1.1);
+        }
+        .thumbnail-strip { display: flex; gap: 1rem; }
+        .thumb-item {
+            flex: 1;
+            aspect-ratio: 1;
+            background: rgba(255,255,255,0.05);
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 2.5rem;
+        }
+        .thumb-item:hover, .thumb-item.active {
+            border-color: rgba(245,158,11,0.5);
+            background: rgba(245,158,11,0.1);
+        }
+        
+        /* Product Info */
+        .product-info-card { padding: 2rem; }
+        .prod-category-badge {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: linear-gradient(135deg, rgba(245,158,11,0.2), rgba(244,63,94,0.15));
+            border: 1px solid rgba(245,158,11,0.3);
+            border-radius: 20px;
+            color: #fbbf24;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .prod-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #f5e6cc;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        .prod-meta { display: flex; align-items: center; gap: 2rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .prod-rating { display: flex; align-items: center; gap: 0.75rem; }
+        .stars { color: #fbbf24; font-size: 0.95rem; }
+        .rating-count { color: rgba(245,230,204,0.6); font-size: 0.9rem; }
+        .prod-sku { color: rgba(245,230,204,0.5); font-size: 0.9rem; }
+        .prod-sku span { color: rgba(245,230,204,0.8); }
+        
+        /* Price */
+        .prod-price-wrap {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .price-main {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #fbbf24;
+        }
+        .price-old {
+            font-size: 1.4rem;
+            color: rgba(245,230,204,0.4);
+            text-decoration: line-through;
+        }
+        .discount-pill {
+            padding: 0.4rem 0.875rem;
+            background: linear-gradient(135deg, rgba(244,63,94,0.9), rgba(225,29,72,0.9));
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        
+        /* Description */
+        .prod-desc {
+            color: rgba(245,230,204,0.75);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Features */
+        .feature-list { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem; }
+        .feature-item { display: flex; align-items: center; gap: 0.75rem; color: rgba(245,230,204,0.85); }
+        .feature-item i { color: #10b981; font-size: 1.1rem; }
+        
+        /* Variants */
+        .variant-wrap { margin-bottom: 1.5rem; }
+        .variant-label { display: block; font-weight: 600; color: #f5e6cc; margin-bottom: 0.75rem; }
+        .variant-options { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+        .variant-btn {
+            padding: 0.75rem 1.5rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 12px;
+            color: rgba(245,230,204,0.8);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .variant-btn:hover {
+            background: rgba(245,158,11,0.15);
+            border-color: rgba(245,158,11,0.3);
+            color: #fbbf24;
+        }
+        .variant-btn.active {
+            background: linear-gradient(135deg, rgba(245,158,11,0.3), rgba(244,63,94,0.2));
+            border-color: rgba(245,158,11,0.5);
+            color: #fbbf24;
+            box-shadow: 0 4px 15px rgba(245,158,11,0.2);
+        }
+        
+        /* Quantity */
+        .quantity-wrap { margin-bottom: 1.5rem; }
+        .qty-label { display: block; font-weight: 600; color: #f5e6cc; margin-bottom: 0.75rem; }
+        .qty-selector-row { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+        .qty-selector {
+            display: flex;
+            align-items: center;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 14px;
+            overflow: hidden;
+        }
+        .qty-btn {
+            width: 48px; height: 48px;
+            background: transparent;
+            border: none;
+            color: rgba(245,230,204,0.8);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .qty-btn:hover { background: rgba(245,158,11,0.2); color: #fbbf24; }
+        .qty-input {
+            width: 60px; height: 48px;
+            background: transparent;
+            border: none;
+            border-left: 1px solid rgba(255,255,255,0.1);
+            border-right: 1px solid rgba(255,255,255,0.1);
+            color: #f5e6cc;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        .stock-badge { display: flex; align-items: center; gap: 0.5rem; color: #10b981; font-size: 0.9rem; }
+        
+        /* Action Buttons */
+        .action-buttons { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+        .btn-add-cart {
+            flex: 1;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, rgba(245,158,11,0.9), rgba(244,63,94,0.9));
+            border: 1px solid rgba(245,158,11,0.5);
+            border-radius: 16px;
+            color: #fff;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            box-shadow: 0 4px 20px rgba(245,158,11,0.3);
+        }
+        .btn-add-cart:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(245,158,11,0.5);
+        }
+        .btn-buy-now {
+            flex: 1;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, rgba(16,185,129,0.9), rgba(5,150,105,0.9));
+            border: 1px solid rgba(16,185,129,0.5);
+            border-radius: 16px;
+            color: #fff;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            box-shadow: 0 4px 20px rgba(16,185,129,0.3);
+        }
+        .btn-buy-now:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(16,185,129,0.5);
+        }
+        
+        /* Delivery Info */
+        .delivery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .delivery-item { display: flex; align-items: center; gap: 0.875rem; }
+        .delivery-icon {
+            width: 48px; height: 48px;
+            background: rgba(245,158,11,0.1);
+            border: 1px solid rgba(245,158,11,0.2);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fbbf24;
+            font-size: 1.2rem;
+        }
+        .delivery-text .title { display: block; font-weight: 600; font-size: 0.9rem; color: #f5e6cc; }
+        .delivery-text .subtitle { display: block; font-size: 0.8rem; color: rgba(245,230,204,0.6); }
+        
+        /* Product Tabs */
+        .tabs-section { margin-top: 3rem; }
+        .tabs-glass {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 24px;
+            overflow: hidden;
+        }
+        .tabs-nav {
+            display: flex;
+            gap: 0.5rem;
+            padding: 0.75rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            overflow-x: auto;
+        }
+        .tab-btn {
+            padding: 0.875rem 1.5rem;
+            background: transparent;
+            border: 1px solid transparent;
+            border-radius: 12px;
+            color: rgba(245,230,204,0.6);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        .tab-btn:hover { color: rgba(245,230,204,0.9); background: rgba(255,255,255,0.03); }
+        .tab-btn.active {
+            color: #fbbf24;
+            background: rgba(245,158,11,0.1);
+            border-color: rgba(245,158,11,0.3);
+        }
+        .tab-content { padding: 2rem; }
+        .tab-panel { display: none; }
+        .tab-panel.active { display: block; animation: fadeIn 0.4s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .tab-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #f5e6cc; margin-bottom: 1rem; }
+        .tab-text { color: rgba(245,230,204,0.75); line-height: 1.8; margin-bottom: 1rem; }
+        .tab-list { padding-left: 1.5rem; margin-bottom: 1.5rem; }
+        .tab-list li { color: rgba(245,230,204,0.75); margin-bottom: 0.5rem; }
+        
+        /* Ingredients */
+        .ingredient-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+        .ingredient-item {
+            display: flex;
+            align-items: center;
+            gap: 0.875rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            color: rgba(245,230,204,0.85);
+        }
+        .ingredient-item i { color: #fbbf24; }
+        
+        /* Reviews */
+        .reviews-summary { display: grid; grid-template-columns: 200px 1fr; gap: 2rem; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .rating-big { text-align: center; }
+        .rating-big .score { font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 700; color: #fbbf24; line-height: 1; }
+        .rating-big .stars { color: #fbbf24; margin: 0.5rem 0; }
+        .rating-big .count { color: rgba(245,230,204,0.6); font-size: 0.9rem; }
+        .rating-bars { display: flex; flex-direction: column; gap: 0.75rem; }
+        .r-bar { display: flex; align-items: center; gap: 1rem; }
+        .r-bar span { font-size: 0.85rem; color: rgba(245,230,204,0.7); width: 40px; }
+        .r-bar .progress { flex: 1; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden; }
+        .r-bar .progress-fill { height: 100%; background: linear-gradient(90deg, #f59e0b, #f43f5e); border-radius: 4px; }
+        
+        .review-item {
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            margin-bottom: 1rem;
+        }
+        .review-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .review-avatar {
+            width: 50px; height: 50px;
+            background: linear-gradient(135deg, rgba(245,158,11,0.3), rgba(244,63,94,0.3));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        .review-meta { flex: 1; }
+        .review-meta .name { font-weight: 600; color: #f5e6cc; margin-bottom: 0.25rem; }
+        .review-meta .stars { color: #fbbf24; font-size: 0.85rem; }
+        .review-date { color: rgba(245,230,204,0.5); font-size: 0.85rem; }
+        .review-text { color: rgba(245,230,204,0.75); line-height: 1.7; margin: 0; }
+        
+        /* Shipping */
+        .shipping-option {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        .shipping-option:hover { background: rgba(245,158,11,0.1); border-color: rgba(245,158,11,0.2); }
+        .ship-icon {
+            width: 56px; height: 56px;
+            background: linear-gradient(135deg, rgba(245,158,11,0.2), rgba(244,63,94,0.15));
+            border: 1px solid rgba(245,158,11,0.3);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fbbf24;
+            font-size: 1.4rem;
+        }
+        .ship-info h4 { font-size: 1.1rem; color: #f5e6cc; margin-bottom: 0.25rem; }
+        .ship-info p { color: rgba(245,230,204,0.6); font-size: 0.9rem; margin: 0; }
+        .ship-price { margin-left: auto; font-weight: 700; color: #fbbf24; font-size: 1.1rem; }
+        
+        /* Related Products */
+        .related-section { margin-top: 4rem; }
+        .section-header { text-align: center; margin-bottom: 2rem; }
+        .section-title { font-family: 'Playfair Display', serif; font-size: 2rem; color: #f5e6cc; margin-bottom: 0.5rem; }
+        .section-subtitle { color: rgba(245,230,204,0.6); }
+        
+        .products-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+        .rel-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        .rel-card:hover { transform: translateY(-8px); border-color: rgba(245,158,11,0.3); box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+        .rel-img {
+            height: 160px;
+            background: linear-gradient(135deg, rgba(245,158,11,0.1), rgba(244,63,94,0.05));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+        .rel-info { padding: 1.25rem; }
+        .rel-category { font-size: 0.7rem; color: #f59e0b; text-transform: uppercase; font-weight: 600; margin-bottom: 0.5rem; }
+        .rel-name { font-family: 'Playfair Display', serif; font-size: 1rem; color: #f5e6cc; margin-bottom: 0.5rem; }
+        .rel-price { font-weight: 700; color: #fbbf24; }
+        
+        @media (max-width: 991px) {
+            .products-row { grid-template-columns: repeat(2, 1fr); }
+            .delivery-grid { grid-template-columns: 1fr; }
+            .reviews-summary { grid-template-columns: 1fr; }
+            .ingredient-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 576px) {
+            .action-buttons { flex-direction: column; }
+            .products-row { grid-template-columns: 1fr; }
+            .prod-title { font-size: 1.75rem; }
+            .price-main { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Breadcrumb -->
+        <ul class="breadcrumb-glass">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Bengali Sweets</a></li>
+            <li class="active">Premium Roshogolla</li>
+        </ul>
+
+        <div class="row g-4">
+            <!-- Product Gallery -->
+            <div class="col-lg-6">
+                <div class="product-gallery">
+                    <div class="main-image">
+                        <span class="prod-emoji">⚪</span>
+                        <span class="img-badge badge-bestseller">Bestseller</span>
+                        <span class="img-badge badge-sale" style="left: 20px; top: 55px;">-15% Off</span>
+                        <button class="wishlist-float"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="thumbnail-strip">
+                        <div class="thumb-item active">⚪</div>
+                        <div class="thumb-item">🍬</div>
+                        <div class="thumb-item">🥣</div>
+                        <div class="thumb-item">📦</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Info -->
+            <div class="col-lg-6">
+                <div class="glass-card product-info-card">
+                    <span class="prod-category-badge">Bengali Sweets</span>
+                    <h1 class="prod-title">Premium Roshogolla</h1>
+                    
+                    <div class="prod-meta">
+                        <div class="prod-rating">
+                            <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></span>
+                            <span class="rating-count">4.8 (256 reviews)</span>
+                        </div>
+                        <div class="prod-sku">SKU: <span>BS-ROSH-001</span></div>
+                    </div>
+
+                    <div class="prod-price-wrap">
+                        <span class="price-main">৳450</span>
+                        <span class="price-old">৳530</span>
+                        <span class="discount-pill">15% OFF</span>
+                    </div>
+
+                    <p class="prod-desc">Experience the authentic taste of Bengal with our Premium Roshogolla. Made with the finest chhana (cottage cheese) and soaked in aromatic sugar syrup infused with cardamom and saffron. Each piece is handcrafted by our expert sweet makers.</p>
+
+                    <div class="feature-list">
+                        <div class="feature-item"><i class="fas fa-check-circle"></i> 100% Natural Ingredients</div>
+                        <div class="feature-item"><i class="fas fa-check-circle"></i> No Preservatives Added</div>
+                        <div class="feature-item"><i class="fas fa-check-circle"></i> Fresh Daily Preparation</div>
+                        <div class="feature-item"><i class="fas fa-check-circle"></i> Traditional Recipe</div>
+                    </div>
+
+                    <div class="variant-wrap">
+                        <span class="variant-label">Select Size:</span>
+                        <div class="variant-options">
+                            <button class="variant-btn active">500g</button>
+                            <button class="variant-btn">1kg</button>
+                            <button class="variant-btn">2kg</button>
+                            <button class="variant-btn">5kg Party Pack</button>
+                        </div>
+                    </div>
+
+                    <div class="quantity-wrap">
+                        <span class="qty-label">Quantity:</span>
+                        <div class="qty-selector-row">
+                            <div class="qty-selector">
+                                <button class="qty-btn" onclick="updateQty(-1)"><i class="fas fa-minus"></i></button>
+                                <input type="text" class="qty-input" value="1" id="qtyInput" readonly>
+                                <button class="qty-btn" onclick="updateQty(1)"><i class="fas fa-plus"></i></button>
+                            </div>
+                            <span class="stock-badge"><i class="fas fa-check-circle"></i> In Stock</span>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn-add-cart"><i class="fas fa-shopping-bag"></i> Add to Cart</button>
+                        <button class="btn-buy-now"><i class="fas fa-bolt"></i> Buy Now</button>
+                    </div>
+
+                    <div class="delivery-grid">
+                        <div class="delivery-item">
+                            <div class="delivery-icon"><i class="fas fa-truck"></i></div>
+                            <div class="delivery-text">
+                                <span class="title">Free Delivery</span>
+                                <span class="subtitle">On orders over ৳1000</span>
+                            </div>
+                        </div>
+                        <div class="delivery-item">
+                            <div class="delivery-icon"><i class="fas fa-shield-alt"></i></div>
+                            <div class="delivery-text">
+                                <span class="title">Secure Payment</span>
+                                <span class="subtitle">100% secure checkout</span>
+                            </div>
+                        </div>
+                        <div class="delivery-item">
+                            <div class="delivery-icon"><i class="fas fa-undo"></i></div>
+                            <div class="delivery-text">
+                                <span class="title">Easy Returns</span>
+                                <span class="subtitle">7-day return policy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Tabs -->
+        <div class="tabs-section">
+            <div class="tabs-glass">
+                <div class="tabs-nav">
+                    <button class="tab-btn active" onclick="switchTab('desc')">Description</button>
+                    <button class="tab-btn" onclick="switchTab('ingredients')">Ingredients</button>
+                    <button class="tab-btn" onclick="switchTab('reviews')">Reviews (256)</button>
+                    <button class="tab-btn" onclick="switchTab('shipping')">Shipping</button>
+                </div>
+                <div class="tab-content">
+                    <!-- Description Tab -->
+                    <div class="tab-panel active" id="tab-desc">
+                        <h3 class="tab-title">About Premium Roshogolla</h3>
+                        <p class="tab-text">Our Premium Roshogolla is the crown jewel of Bengali sweets. Each roshogolla is carefully crafted using traditional methods that have been perfected over generations. The process begins with fresh cow's milk, which is curdled to create the perfect chhana (cottage cheese).</p>
+                        <p class="tab-text">This chhana is then kneaded by hand until it reaches a silky smooth consistency, shaped into perfect spheres, and boiled in a delicate sugar syrup infused with cardamom and saffron. The result is a sweet that is soft, spongy, and melts in your mouth.</p>
+                        <h4 class="tab-title" style="font-size: 1.2rem; margin-top: 1.5rem;">Why Choose Our Roshogolla?</h4>
+                        <ul class="tab-list">
+                            <li>Made with 100% pure cow's milk</li>
+                            <li>No artificial colors or preservatives</li>
+                            <li>Traditional hand-kneaded preparation</li>
+                            <li>Perfect texture - soft, spongy, and juicy</li>
+                            <li>Balanced sweetness that enhances the milk flavor</li>
+                            <li>Packaged hygienically to maintain freshness</li>
+                        </ul>
+                    </div>
+
+                    <!-- Ingredients Tab -->
+                    <div class="tab-panel" id="tab-ingredients">
+                        <h3 class="tab-title">Ingredients</h3>
+                        <div class="ingredient-grid">
+                            <div class="ingredient-item"><i class="fas fa-check"></i> Fresh Cow's Milk (Chhana)</div>
+                            <div class="ingredient-item"><i class="fas fa-check"></i> Pure Cane Sugar</div>
+                            <div class="ingredient-item"><i class="fas fa-check"></i> Cardamom Powder</div>
+                            <div class="ingredient-item"><i class="fas fa-check"></i> Saffron Strands</div>
+                            <div class="ingredient-item"><i class="fas fa-check"></i> Refined Wheat Flour</div>
+                            <div class="ingredient-item"><i class="fas fa-check"></i> Rose Water</div>
+                        </div>
+                        <div class="alert mt-4" style="padding: 1rem; background: rgba(244,63,94,0.1); border: 1px solid rgba(244,63,94,0.2); border-radius: 12px; color: rgba(245,230,204,0.9);">
+                            <i class="fas fa-exclamation-triangle" style="color: #f43f5e; margin-right: 0.5rem;"></i>
+                            <strong>Allergen Information:</strong> Contains: Milk, Wheat (traces). Made in a facility that also processes nuts and soy.
+                        </div>
+                    </div>
+
+                    <!-- Reviews Tab -->
+                    <div class="tab-panel" id="tab-reviews">
+                        <div class="reviews-summary">
+                            <div class="rating-big">
+                                <div class="score">4.8</div>
+                                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                                <div class="count">Based on 256 reviews</div>
+                            </div>
+                            <div class="rating-bars">
+                                <div class="r-bar"><span>5 Star</span><div class="progress"><div class="progress-fill" style="width: 85%"></div></div><span>218</span></div>
+                                <div class="r-bar"><span>4 Star</span><div class="progress"><div class="progress-fill" style="width: 10%"></div></div><span>26</span></div>
+                                <div class="r-bar"><span>3 Star</span><div class="progress"><div class="progress-fill" style="width: 3%"></div></div><span>8</span></div>
+                                <div class="r-bar"><span>2 Star</span><div class="progress"><div class="progress-fill" style="width: 1%"></div></div><span>3</span></div>
+                                <div class="r-bar"><span>1 Star</span><div class="progress"><div class="progress-fill" style="width: 1%"></div></div><span>1</span></div>
+                            </div>
+                        </div>
+                        
+                        <div class="review-item">
+                            <div class="review-header">
+                                <div class="review-avatar">👩</div>
+                                <div class="review-meta">
+                                    <div class="name">Farhana Rahman</div>
+                                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                                </div>
+                                <span class="review-date">2 days ago</span>
+                            </div>
+                            <p class="review-text">Absolutely delicious! The roshogollas were so soft and perfectly sweet. They reminded me of my grandmother's cooking. Will definitely order again!</p>
+                        </div>
+
+                        <div class="review-item">
+                            <div class="review-header">
+                                <div class="review-avatar">👨</div>
+                                <div class="review-meta">
+                                    <div class="name">Mohammad Ali</div>
+                                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                                </div>
+                                <span class="review-date">1 week ago</span>
+                            </div>
+                            <p class="review-text">Ordered for a family gathering. Everyone loved it! The packaging was excellent and the sweets were fresh. Highly recommended!</p>
+                        </div>
+                    </div>
+
+                    <!-- Shipping Tab -->
+                    <div class="tab-panel" id="tab-shipping">
+                        <h3 class="tab-title">Shipping Information</h3>
+                        <div class="shipping-option">
+                            <div class="ship-icon"><i class="fas fa-motorcycle"></i></div>
+                            <div class="ship-info">
+                                <h4>Standard Delivery</h4>
+                                <p>Delivery within 2-4 hours in Dhaka city</p>
+                            </div>
+                            <span class="ship-price">৳50</span>
+                        </div>
+                        <div class="shipping-option">
+                            <div class="ship-icon"><i class="fas fa-shipping-fast"></i></div>
+                            <div class="ship-info">
+                                <h4>Express Delivery</h4>
+                                <p>Delivery within 1 hour in Dhaka city</p>
+                            </div>
+                            <span class="ship-price">৳100</span>
+                        </div>
+                        <div class="shipping-option">
+                            <div class="ship-icon"><i class="fas fa-truck"></i></div>
+                            <div class="ship-info">
+                                <h4>Outside Dhaka</h4>
+                                <p>Delivery within 24-48 hours</p>
+                            </div>
+                            <span class="ship-price">৳150</span>
+                        </div>
+                        <div class="alert mt-4" style="padding: 1rem; background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.2); border-radius: 12px;">
+                            <div style="color: #60a5fa; margin-bottom: 0.5rem;"><i class="fas fa-snowflake"></i> <strong>Storage Instructions</strong></div>
+                            <div style="color: rgba(245,230,204,0.75); font-size: 0.9rem;">Keep refrigerated at 4 degrees C or below. Best consumed within 48 hours of delivery. Do not freeze.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Products -->
+        <div class="related-section">
+            <div class="section-header">
+                <h2 class="section-title">You May Also Like</h2>
+                <p class="section-subtitle">Similar products you might enjoy</p>
+            </div>
+            <div class="products-row">
+                <div class="rel-card">
+                    <div class="rel-img">🍬</div>
+                    <div class="rel-info">
+                        <div class="rel-category">Bengali Sweets</div>
+                        <div class="rel-name">Cham Cham Special</div>
+                        <div class="rel-price">৳520</div>
+                    </div>
+                </div>
+                <div class="rel-card">
+                    <div class="rel-img">🟤</div>
+                    <div class="rel-info">
+                        <div class="rel-category">Bengali Sweets</div>
+                        <div class="rel-name">Kalojam Deluxe</div>
+                        <div class="rel-price">৳480</div>
+                    </div>
+                </div>
+                <div class="rel-card">
+                    <div class="rel-img">🥛</div>
+                    <div class="rel-info">
+                        <div class="rel-category">Bengali Sweets</div>
+                        <div class="rel-name">Misti Doi</div>
+                        <div class="rel-price">৳180</div>
+                    </div>
+                </div>
+                <div class="rel-card">
+                    <div class="rel-img">🧈</div>
+                    <div class="rel-info">
+                        <div class="rel-category">Bengali Sweets</div>
+                        <div class="rel-name">Sandesh Premium</div>
+                        <div class="rel-price">৳380</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function updateQty(change) {
+            const input = document.getElementById('qtyInput');
+            let val = parseInt(input.value) + change;
+            if (val < 1) val = 1;
+            if (val > 10) val = 10;
+            input.value = val;
+        }
+
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById('tab-' + tabName).classList.add('active');
+        }
+    </script>
+</body>
+</html>

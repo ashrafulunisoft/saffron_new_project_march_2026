@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Roshogolla - Saffron Sweets & Bakery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+<style>
+    body {
+        background: linear-gradient(135deg, #0f0a00 0%, #1a0f05 50%, #0d0520 100%);
+        color: #f5e6cc;
+    }
+</style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar py-2">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <span class="text-white small"><i class="fas fa-phone-alt me-2"></i>+880 1730 702000</span>
+                    <span class="text-white small ms-3"><i class="fas fa-envelope me-2"></i>info@saffronsweets.com.bd</span>
+                </div>
+                <div class="col-md-6 text-end">
+                    <span class="text-white small">Free Delivery on Orders Over ৳1000</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-glass sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span class="brand-icon">🌸</span>
+                <span class="brand-text">Saffron</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Bengali Sweets</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Chocolates</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Bakery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Cakes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="#" class="nav-icon"><i class="fas fa-search"></i></a>
+                    <a href="#" class="nav-icon"><i class="fas fa-heart"></i><span class="badge">3</span></a>
+                    <a href="#" class="nav-icon position-relative" data-bs-toggle="offcanvas" data-bs-target="#cartSidebar">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="badge cart-badge">5</span>
+                    </a>
+                    <a href="#" class="btn btn-saffron ms-3">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb-section py-4">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb glass-breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Bengali Sweets</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Premium Roshogolla</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Product Details Section -->
+    <section class="product-details-section py-5">
+        <div class="container">
+            <div class="row g-5">
+                <!-- Product Images -->
+                <div class="col-lg-6">
+                    <div class="product-images-container">
+                        <div class="main-image glass-large">
+                            <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600" alt="Premium Roshogolla" id="mainImage">
+                            <div class="image-zoom-icon"><i class="fas fa-search-plus"></i></div>
+                            <div class="product-tags">
+                                <span class="tag sale">-15%</span>
+                                <span class="tag bestseller">Bestseller</span>
+                            </div>
+                        </div>
+                        <div class="thumbnail-images">
+                            <div class="thumb-item active" data-img="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600">
+                                <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=150" alt="Roshogolla 1">
+                            </div>
+                            <div class="thumb-item" data-img="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?w=600">
+                                <img src="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?w=150" alt="Roshogolla 2">
+                            </div>
+                            <div class="thumb-item" data-img="https://images.unsplash.com/photo-1626202158822-1f6d3b47e439?w=600">
+                                <img src="https://images.unsplash.com/photo-1626202158822-1f6d3b47e439?w=150" alt="Roshogolla 3">
+                            </div>
+                            <div class="thumb-item" data-img="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600">
+                                <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=150" alt="Roshogolla 4">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="col-lg-6">
+                    <div class="product-info glass-large p-4">
+                        <div class="product-header">
+                            <span class="product-category-badge">Bengali Sweets</span>
+                            <div class="product-actions-float">
+                                <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+                                <button class="btn-share"><i class="fas fa-share-alt"></i></button>
+                            </div>
+                        </div>
+                        
+                        <h1 class="product-name">Premium Roshogolla</h1>
+                        
+                        <div class="product-meta">
+                            <div class="product-rating-large">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="rating-count">4.8 (256 reviews)</span>
+                            </div>
+                            <div class="product-sku">SKU: <span>BS-ROSH-001</span></div>
+                        </div>
+
+                        <div class="product-price-large">
+                            <span class="current-price">৳450</span>
+                            <span class="old-price">৳530</span>
+                            <span class="discount-badge">15% OFF</span>
+                        </div>
+
+                        <div class="product-description">
+                            <p>Experience the authentic taste of Bengal with our Premium Roshogolla. Made with the finest chhana (cottage cheese) and soaked in aromatic sugar syrup infused with cardamom and saffron. Each piece is handcrafted by our expert sweet makers using traditional recipes passed down through generations.</p>
+                        </div>
+
+                        <div class="product-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle text-success"></i>
+                                <span>100% Natural Ingredients</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle text-success"></i>
+                                <span>No Preservatives</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle text-success"></i>
+                                <span>Fresh Daily Made</span>
+                            </div>
+                        </div>
+
+                        <div class="product-variants">
+                            <label class="variant-label">Select Size:</label>
+                            <div class="variant-options">
+                                <button class="variant-btn active">500g</button>
+                                <button class="variant-btn">1kg</button>
+                                <button class="variant-btn">2kg</button>
+                                <button class="variant-btn">5kg (Party Pack)</button>
+                            </div>
+                        </div>
+
+                        <div class="product-quantity">
+                            <label class="quantity-label">Quantity:</label>
+                            <div class="quantity-selector">
+                                <button class="qty-btn" id="decreaseQty"><i class="fas fa-minus"></i></button>
+                                <input type="number" value="1" min="1" max="10" id="qtyInput">
+                                <button class="qty-btn" id="increaseQty"><i class="fas fa-plus"></i></button>
+                            </div>
+                            <span class="stock-status in-stock"><i class="fas fa-check-circle"></i> In Stock</span>
+                        </div>
+
+                        <div class="product-buttons">
+                            <button class="btn btn-saffron btn-lg add-to-cart-btn">
+                                <i class="fas fa-shopping-bag me-2"></i>Add to Cart
+                            </button>
+                            <a href="checkout.html" class="btn btn-buy-now btn-lg">
+                                <i class="fas fa-bolt me-2"></i>Buy Now
+                            </a>
+                        </div>
+
+                        <div class="product-delivery">
+                            <div class="delivery-item">
+                                <i class="fas fa-truck"></i>
+                                <div>
+                                    <span class="title">Free Delivery</span>
+                                    <span class="subtitle">On orders over ৳1000</span>
+                                </div>
+                            </div>
+                            <div class="delivery-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <div>
+                                    <span class="title">Secure Payment</span>
+                                    <span class="subtitle">100% secure checkout</span>
+                                </div>
+                            </div>
+                            <div class="delivery-item">
+                                <i class="fas fa-undo"></i>
+                                <div>
+                                    <span class="title">Freshness Guarantee</span>
+                                    <span class="subtitle">Best before 48 hours</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Tabs -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="product-tabs glass-large">
+                        <ul class="nav nav-tabs" id="productTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button">Description</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="ingredients-tab" data-bs-toggle="tab" data-bs-target="#ingredients" type="button">Ingredients</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button">Reviews (256)</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="shipping-tab" data-bs-toggle="tab" data-bs-target="#shipping" type="button">Shipping</button>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="productTabContent">
+                            <div class="tab-pane fade show active" id="description" role="tabpanel">
+                                <h4>About Premium Roshogolla</h4>
+                                <p>Our Premium Roshogolla is the crown jewel of Bengali sweets. Each roshogolla is carefully crafted using traditional methods that have been perfected over generations.</p>
+                                <p>The process begins with fresh cow's milk, which is curdled to create the perfect chhana (cottage cheese). This chhana is then kneaded by hand until it reaches a silky smooth consistency, shaped into perfect spheres, and boiled in a delicate sugar syrup infused with cardamom and saffron.</p>
+                                <h5>Why Choose Our Roshogolla?</h5>
+                                <ul>
+                                    <li>Made with 100% pure cow's milk</li>
+                                    <li>No artificial colors or preservatives</li>
+                                    <li>Traditional hand-kneaded preparation</li>
+                                    <li>Perfect texture - soft, spongy, and juicy</li>
+                                    <li>Balanced sweetness that enhances the milk flavor</li>
+                                    <li>Packaged hygienically to maintain freshness</li>
+                                </ul>
+                            </div>
+                            <div class="tab-pane fade" id="ingredients" role="tabpanel">
+                                <h4>Ingredients</h4>
+                                <div class="ingredients-list">
+                                    <div class="ingredient-item">
+                                        <i class="fas fa-chevron-right"></i>
+                                        <span>Fresh Cow's Milk (Chhana/Cottage Cheese)</span>
+                                    </div>
+                                    <div class="ingredient-item">
+                                        <i class="fas fa-chevron-right"></i>
+                                        <span>Pure Cane Sugar</span>
+                                    </div>
+                                    <div class="ingredient-item">
+                                        <i class="fas fa-chevron-right"></i>
+                                        <span>Cardamom Powder</span>
+                                    </div>
+                                    <div class="ingredient-item">
+                                        <i class="fas fa-chevron-right"></i>
+                                        <span>Saffron Strands</span>
+                                    </div>
+                                    <div class="ingredient-item">
+                                        <i class="fas fa-chevron-right"></i>
+                                        <span>Refined Wheat Flour (Trace amounts for binding)</span>
+                                    </div>
+                                    <div class="ingredient-item">
+                                        <i class="fas fa-chevron-right"></i>
+                                        <span>Rose Water (Natural flavoring)</span>
+                                    </div>
+                                </div>
+                                <div class="allergen-info mt-4">
+                                    <h5>Allergen Information</h5>
+                                    <p><i class="fas fa-exclamation-triangle text-warning"></i> Contains: Milk, Wheat (traces)</p>
+                                    <p>Made in a facility that also processes nuts and soy.</p>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="reviews" role="tabpanel">
+                                <div class="reviews-summary">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="average-rating">
+                                                <h2>4.8</h2>
+                                                <div class="stars">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star-half-alt"></i>
+                                                </div>
+                                                <p>Based on 256 reviews</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="rating-bars">
+                                                <div class="rating-bar">
+                                                    <span>5★</span>
+                                                    <div class="progress"><div class="progress-bar" style="width: 85%"></div></div>
+                                                    <span>218</span>
+                                                </div>
+                                                <div class="rating-bar">
+                                                    <span>4★</span>
+                                                    <div class="progress"><div class="progress-bar" style="width: 10%"></div></div>
+                                                    <span>26</span>
+                                                </div>
+                                                <div class="rating-bar">
+                                                    <span>3★</span>
+                                                    <div class="progress"><div class="progress-bar" style="width: 3%"></div></div>
+                                                    <span>8</span>
+                                                </div>
+                                                <div class="rating-bar">
+                                                    <span>2★</span>
+                                                    <div class="progress"><div class="progress-bar" style="width: 1%"></div></div>
+                                                    <span>3</span>
+                                                </div>
+                                                <div class="rating-bar">
+                                                    <span>1★</span>
+                                                    <div class="progress"><div class="progress-bar" style="width: 1%"></div></div>
+                                                    <span>1</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="reviews-list">
+                                    <div class="review-item">
+                                        <div class="review-header">
+                                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User">
+                                            <div>
+                                                <h6>Farhana Rahman</h6>
+                                                <div class="review-stars">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                            </div>
+                                            <span class="review-date">2 days ago</span>
+                                        </div>
+                                        <p class="review-text">Absolutely delicious! The roshogollas were so soft and perfectly sweet. They reminded me of my grandmother's cooking. Will definitely order again!</p>
+                                    </div>
+                                    <div class="review-item">
+                                        <div class="review-header">
+                                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User">
+                                            <div>
+                                                <h6>Mohammad Ali</h6>
+                                                <div class="review-stars">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                            </div>
+                                            <span class="review-date">1 week ago</span>
+                                        </div>
+                                        <p class="review-text">Ordered for a family gathering. Everyone loved it! The packaging was excellent and the sweets were fresh. Highly recommended!</p>
+                                    </div>
+                                </div>
+                                <button class="btn btn-outline-saffron mt-3">Write a Review</button>
+                            </div>
+                            <div class="tab-pane fade" id="shipping" role="tabpanel">
+                                <h4>Shipping Information</h4>
+                                <div class="shipping-info">
+                                    <div class="shipping-option">
+                                        <i class="fas fa-motorcycle"></i>
+                                        <div>
+                                            <h6>Standard Delivery</h6>
+                                            <p>Delivery within 2-4 hours in Dhaka city</p>
+                                            <span class="price">৳50 (Free for orders above ৳1000)</span>
+                                        </div>
+                                    </div>
+                                    <div class="shipping-option">
+                                        <i class="fas fa-shipping-fast"></i>
+                                        <div>
+                                            <h6>Express Delivery</h6>
+                                            <p>Delivery within 1 hour in Dhaka city</p>
+                                            <span class="price">৳100</span>
+                                        </div>
+                                    </div>
+                                    <div class="shipping-option">
+                                        <i class="fas fa-truck"></i>
+                                        <div>
+                                            <h6>Outside Dhaka</h6>
+                                            <p>Delivery within 24-48 hours</p>
+                                            <span class="price">৳150</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="storage-info mt-4">
+                                    <h5>Storage Instructions</h5>
+                                    <p><i class="fas fa-snowflake"></i> Keep refrigerated at 4°C or below</p>
+                                    <p><i class="fas fa-clock"></i> Best consumed within 48 hours of delivery</p>
+                                    <p><i class="fas fa-ban"></i> Do not freeze</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Products -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="section-header text-center mb-4">
+                        <span class="section-badge">You May Also Like</span>
+                        <h3 class="section-title">Related <span class="text-gradient">Products</span></h3>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-lg-3 col-md-4 col-6">
+                            <div class="product-card glass">
+                                <div class="product-badge new">New</div>
+                                <div class="product-wishlist"><i class="far fa-heart"></i></div>
+                                <div class="product-image">
+                                    <img src="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?w=300" alt="Sandesh">
+                                    <div class="product-overlay">
+                                        <a href="#" class="btn btn-light btn-sm">Quick View</a>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <span class="product-category">Bengali Sweets</span>
+                                    <h5 class="product-title">Kesar Sandesh</h5>
+                                    <div class="product-price">
+                                        <span class="current-price">৳380</span>
+                                    </div>
+                                    <button class="btn btn-saffron w-100 add-to-cart">
+                                        <i class="fas fa-shopping-bag me-2"></i>Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-6">
+                            <div class="product-card glass">
+                                <div class="product-wishlist"><i class="far fa-heart"></i></div>
+                                <div class="product-image">
+                                    <img src="https://images.unsplash.com/photo-1626202158822-1f6d3b47e439?w=300" alt="Mishti Doi">
+                                    <div class="product-overlay">
+                                        <a href="#" class="btn btn-light btn-sm">Quick View</a>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <span class="product-category">Bengali Sweets</span>
+                                    <h5 class="product-title">Matka Mishti Doi</h5>
+                                    <div class="product-price">
+                                        <span class="current-price">৳180</span>
+                                    </div>
+                                    <button class="btn btn-saffron w-100 add-to-cart">
+                                        <i class="fas fa-shopping-bag me-2"></i>Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-6">
+                            <div class="product-card glass">
+                                <div class="product-badge">-10%</div>
+                                <div class="product-wishlist"><i class="far fa-heart"></i></div>
+                                <div class="product-image">
+                                    <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=300" alt="Cham Cham">
+                                    <div class="product-overlay">
+                                        <a href="#" class="btn btn-light btn-sm">Quick View</a>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <span class="product-category">Bengali Sweets</span>
+                                    <h5 class="product-title">Cham Cham</h5>
+                                    <div class="product-price">
+                                        <span class="current-price">৳420</span>
+                                        <span class="old-price">৳465</span>
+                                    </div>
+                                    <button class="btn btn-saffron w-100 add-to-cart">
+                                        <i class="fas fa-shopping-bag me-2"></i>Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-6">
+                            <div class="product-card glass">
+                                <div class="product-wishlist"><i class="far fa-heart"></i></div>
+                                <div class="product-image">
+                                    <img src="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?w=300" alt="Kalojam">
+                                    <div class="product-overlay">
+                                        <a href="#" class="btn btn-light btn-sm">Quick View</a>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <span class="product-category">Bengali Sweets</span>
+                                    <h5 class="product-title">Kalojam</h5>
+                                    <div class="product-price">
+                                        <span class="current-price">৳480</span>
+                                    </div>
+                                    <button class="btn btn-saffron w-100 add-to-cart">
+                                        <i class="fas fa-shopping-bag me-2"></i>Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="footer-about">
+                            <a class="footer-brand" href="#">
+                                <span class="brand-icon">🌸</span>
+                                <span class="brand-text">Saffron</span>
+                            </a>
+                            <p>Authentic Bengali sweets and premium bakery since 2010. Bringing the taste of tradition to your doorstep.</p>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-6">
+                        <div class="footer-widget">
+                            <h5>Quick Links</h5>
+                            <ul>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Products</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-6">
+                        <div class="footer-widget">
+                            <h5>Categories</h5>
+                            <ul>
+                                <li><a href="#">Bengali Sweets</a></li>
+                                <li><a href="#">Chocolates</a></li>
+                                <li><a href="#">Bakery</a></li>
+                                <li><a href="#">Cakes</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="footer-widget">
+                            <h5>Contact Us</h5>
+                            <ul class="contact-info">
+                                <li><i class="fas fa-map-marker-alt"></i> Jahir Smart Tower, 205/1, Begum Rokeya Sharani, Taltola, Dhaka-1207</li>
+                                <li><i class="fas fa-phone"></i> +880 1730 702000</li>
+                                <li><i class="fas fa-envelope"></i> info@saffronsweets.com.bd</li>
+                                <li><i class="fas fa-clock"></i> Mon - Sat: 9AM - 9PM</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="mb-0">© 2024 Saffron Sweets & Bakery. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-end">
+                        <div class="payment-icons">
+                            <i class="fab fa-cc-visa"></i>
+                            <i class="fab fa-cc-mastercard"></i>
+                            <i class="fab fa-cc-amex"></i>
+                            <i class="fab fa-cc-paypal"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="offcanvas offcanvas-end cart-sidebar" id="cartSidebar">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Shopping Cart (5)</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="cart-items">
+                <div class="cart-item">
+                    <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=100" alt="Product">
+                    <div class="cart-item-info">
+                        <h6>Premium Roshogolla</h6>
+                        <p>1 kg - ৳450</p>
+                    </div>
+                    <button class="btn-remove"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="cart-item">
+                    <img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=100" alt="Product">
+                    <div class="cart-item-info">
+                        <h6>Chocolate Box</h6>
+                        <p>1 pack - ৳850</p>
+                    </div>
+                    <button class="btn-remove"><i class="fas fa-times"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="offcanvas-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="total-price">৳1,300</span>
+            </div>
+            <a href="checkout.html" class="btn btn-saffron w-100 mb-2">Proceed to Checkout</a>
+            <a href="#" class="btn btn-outline-light w-100">View Cart</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
