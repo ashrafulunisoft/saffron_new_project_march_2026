@@ -428,6 +428,13 @@ body {
     border-radius: 20px;
     margin-top: 0.5rem;
     background: rgba(15, 10, 0, 0.9);
+    max-height: 80vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .glass-mega-menu .container {
+    padding-bottom: 1rem;
   }
   
   .glass-mega-featured {
@@ -436,6 +443,11 @@ body {
   
   .glass-mega-col {
     margin-bottom: 1rem;
+  }
+  
+  .mega-chevron {
+    font-size: 0.6rem;
+    margin-right: 0.5rem;
   }
 }
 .cart-badge {
@@ -946,62 +958,66 @@ body {
           <div class="dropdown-menu glass-mega-menu" aria-labelledby="glassMegaMenu">
             <div class="container">
               <div class="row g-4">
-                <!-- Featured Category with Image -->
-                <div class="col-lg-4">
-                  <div class="glass-mega-featured">
-                    <div class="mega-featured-img">
-                      <span style="font-size:6rem;">🧁</span>
-                    </div>
-                    <h5 class="mega-featured-title">Seasonal Specials</h5>
-                    <p class="mega-featured-desc">Discover our limited edition treats crafted for the festive season.</p>
-                    <a href="#" onclick="showPage('product')" class="mega-featured-link">Explore Now <i class="fas fa-arrow-right ms-2"></i></a>
-                  </div>
-                </div>
-                <!-- Menu Columns -->
-                <div class="col-lg-8">
+                <!-- 4 Column Menu Structure -->
+                <div class="col-12">
                   <div class="row g-3">
-                    <!-- Column 1: Bengali Sweets -->
-                    <div class="col-md-4">
+                    <!-- Column 1: Bakery Essentials -->
+                    <div class="col-6 col-lg-3">
                       <div class="glass-mega-col">
                         <h6 class="glass-mega-title">
-                          <span class="mega-icon">🍬</span> Bengali Sweets
+                          <span class="mega-icon">🍞</span> Bakery Essentials
                         </h6>
                         <ul class="glass-mega-list">
-                          <li><a href="#" onclick="showPage('product')" class="mega-link"><span class="link-dot"></span>Roshogolla</a></li>
-                          <li><a href="#" onclick="showPage('product')" class="mega-link"><span class="link-dot"></span>Cham Cham</a></li>
-                          <li><a href="#" onclick="showPage('product')" class="mega-link"><span class="link-dot"></span>Kalojam</a></li>
-                          <li><a href="#" onclick="showPage('product')" class="mega-link"><span class="link-dot"></span>Misti Doi</a></li>
-                          <li><a href="#" onclick="showPage('product')" class="mega-link"><span class="link-dot"></span>Sandesh</a></li>
+                          <li><a href="#" onclick="showPage('product')" class="mega-link"><i class="fas fa-chevron-right mega-chevron"></i>Fresh Bread</a></li>
+                          <li><a href="#" onclick="showPage('product')" class="mega-link"><i class="fas fa-chevron-right mega-chevron"></i>Artisan Sourdough</a></li>
+                          <li><a href="#" onclick="showPage('product')" class="mega-link"><i class="fas fa-chevron-right mega-chevron"></i>Baguettes</a></li>
+                          <li><a href="#" onclick="showPage('product')" class="mega-link"><i class="fas fa-chevron-right mega-chevron"></i>Whole Wheat</a></li>
+                          <li><a href="#" onclick="showPage('product')" class="mega-link"><i class="fas fa-chevron-right mega-chevron"></i>Gluten Free</a></li>
                         </ul>
                       </div>
                     </div>
-                    <!-- Column 2: Cakes & Bakery -->
-                    <div class="col-md-4">
+                    <!-- Column 2: Sweet Treats -->
+                    <div class="col-6 col-lg-3">
                       <div class="glass-mega-col">
                         <h6 class="glass-mega-title">
-                          <span class="mega-icon">🎂</span> Cakes & Bakery
+                          <span class="mega-icon">🧁</span> Sweet Treats
                         </h6>
                         <ul class="glass-mega-list">
-                          <li><a href="#" onclick="showPage('product')" class="mega-link"><span class="link-dot"></span>Birthday Cakes</a></li>
-                          <li><a href="#" onclick="showPage('product')" class="mega-link"><span class="link-dot"></span>Wedding Cakes</a></li>
-                          <li><a href="#" onclick="showPage('product')" class="mega-link"><span class="link-dot"></span>Cupcakes</a></li>
-                          <li><a href="#" onclick="showPage('product')" class="mega-link"><span class="link-dot"></span>Pastries</a></li>
-                          <li><a href="#" onclick="showPage('product')" class="mega-link"><span class="link-dot"></span>Bread</a></li>
+                          <li><a href="#" onclick="showPage('product')" class="mega-link"><i class="fas fa-chevron-right mega-chevron"></i>Cakes</a></li>
+                          <li><a href="#" onclick="showPage('product')" class="mega-link"><i class="fas fa-chevron-right mega-chevron"></i>Cupcakes</a></li>
+                          <li><a href="#" onclick="showPage('product')" class="mega-link"><i class="fas fa-chevron-right mega-chevron"></i>Pastries</a></li>
+                          <li><a href="#" onclick="showPage('product')" class="mega-link"><i class="fas fa-chevron-right mega-chevron"></i>Tarts</a></li>
+                          <li><a href="#" onclick="showPage('product')" class="mega-link"><i class="fas fa-chevron-right mega-chevron"></i>Macarons</a></li>
                         </ul>
                       </div>
                     </div>
-                    <!-- Column 3: Chocolates & More -->
-                    <div class="col-md-4">
+                    <!-- Column 3: Chocolates -->
+                    <div class="col-6 col-lg-3">
                       <div class="glass-mega-col">
                         <h6 class="glass-mega-title">
                           <span class="mega-icon">🍫</span> Chocolates
                         </h6>
                         <ul class="glass-mega-list">
-                          <li><a href="#" onclick="showPage('product')" class="mega-link"><span class="link-dot"></span>Dark Chocolate</a></li>
-                          <li><a href="#" onclick="showPage('product')" class="mega-link"><span class="link-dot"></span>Milk Chocolate</a></li>
-                          <li><a href="#" onclick="showPage('product')" class="mega-link"><span class="link-dot"></span>Truffles</a></li>
-                          <li><a href="#" onclick="showPage('product')" class="mega-link"><span class="link-dot"></span>Gift Boxes</a></li>
-                          <li><a href="#" onclick="showPage('product')" class="mega-link"><span class="link-dot"></span>Custom Orders</a></li>
+                          <li><a href="#" onclick="showPage('product')" class="mega-link"><i class="fas fa-chevron-right mega-chevron"></i>Chocolates</a></li>
+                          <li><a href="#" onclick="showPage('product')" class="mega-link"><i class="fas fa-chevron-right mega-chevron"></i>Truffles</a></li>
+                          <li><a href="#" onclick="showPage('product')" class="mega-link"><i class="fas fa-chevron-right mega-chevron"></i>Gummies</a></li>
+                          <li><a href="#" onclick="showPage('product')" class="mega-link"><i class="fas fa-chevron-right mega-chevron"></i>Hard Candy</a></li>
+                          <li><a href="#" onclick="showPage('product')" class="mega-link"><i class="fas fa-chevron-right mega-chevron"></i>Fudge</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <!-- Column 4: Dairy & More -->
+                    <div class="col-6 col-lg-3">
+                      <div class="glass-mega-col">
+                        <h6 class="glass-mega-title">
+                          <span class="mega-icon">🥛</span> Dairy & More
+                        </h6>
+                        <ul class="glass-mega-list">
+                          <li><a href="#" onclick="showPage('product')" class="mega-link"><i class="fas fa-chevron-right mega-chevron"></i>Fresh Milk</a></li>
+                          <li><a href="#" onclick="showPage('product')" class="mega-link"><i class="fas fa-chevron-right mega-chevron"></i>Butter</a></li>
+                          <li><a href="#" onclick="showPage('product')" class="mega-link"><i class="fas fa-chevron-right mega-chevron"></i>Cream</a></li>
+                          <li><a href="#" onclick="showPage('product')" class="mega-link"><i class="fas fa-chevron-right mega-chevron"></i>Honey</a></li>
+                          <li><a href="#" onclick="showPage('product')" class="mega-link"><i class="fas fa-chevron-right mega-chevron"></i>Jams</a></li>
                         </ul>
                       </div>
                     </div>
