@@ -1102,6 +1102,227 @@ body {
   gap: 0.5rem;
 }
 
+/* =====================
+   ORDER DETAILS PAGE
+   ===================== */
+.order-timeline {
+  position: relative;
+  padding-left: 30px;
+}
+.order-timeline::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.1);
+}
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+  position: relative;
+}
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+.timeline-icon {
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: rgba(245, 230, 204, 0.5);
+  margin-left: -30px;
+  z-index: 1;
+  border: 2px solid rgba(15, 10, 0, 0.9);
+}
+.timeline-item.completed .timeline-icon {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #fff;
+}
+.timeline-item.active .timeline-icon {
+  background: linear-gradient(135deg, #f59e0b, #f43f5e);
+  color: #fff;
+  animation: pulse-icon 2s infinite;
+}
+@keyframes pulse-icon {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
+  50% { box-shadow: 0 0 0 10px rgba(245, 158, 11, 0); }
+}
+.timeline-content {
+  flex: 1;
+  padding-top: 0.25rem;
+}
+.timeline-title {
+  font-weight: 600;
+  color: #f5e6cc;
+  font-size: 0.95rem;
+}
+.timeline-item.completed .timeline-title {
+  color: #34d399;
+}
+.timeline-item.active .timeline-title {
+  color: #fbbf24;
+}
+.timeline-date {
+  font-size: 0.85rem;
+  color: rgba(245, 230, 204, 0.5);
+  margin-top: 0.25rem;
+}
+
+/* Order Detail Items */
+.order-detail-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.order-detail-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+.order-detail-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(245, 158, 11, 0.15);
+}
+.order-detail-img {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+}
+.order-detail-info {
+  flex: 1;
+}
+.order-detail-info h6 {
+  color: #f5e6cc;
+  margin-bottom: 0.25rem;
+  font-size: 1rem;
+}
+.order-detail-variant {
+  color: rgba(245, 230, 204, 0.5);
+  font-size: 0.85rem;
+  margin: 0;
+}
+.order-detail-price {
+  color: rgba(245, 230, 204, 0.6);
+  font-size: 0.9rem;
+  margin: 0.25rem 0 0;
+}
+.order-detail-total {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fbbf24;
+  min-width: 70px;
+  text-align: right;
+}
+
+/* Order Summary */
+.order-summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0;
+  color: rgba(245, 230, 204, 0.7);
+  font-size: 0.95rem;
+}
+.order-summary-row.total {
+  font-weight: 600;
+  color: #f5e6cc;
+  font-size: 1rem;
+}
+.order-summary-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 0.75rem 0;
+}
+.order-payment-method {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.order-payment-method i {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fbbf24;
+}
+.order-payment-method span {
+  color: #f5e6cc;
+  font-size: 0.9rem;
+}
+.order-payment-method small {
+  color: rgba(245, 230, 204, 0.5);
+}
+
+/* Order Address */
+.order-address {
+  position: relative;
+}
+.order-address-type {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: rgba(245, 158, 11, 0.15);
+  border-radius: 100px;
+  color: #fbbf24;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+.order-address-text {
+  color: #f5e6cc;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+.order-address-city {
+  color: rgba(245, 230, 204, 0.5);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+.order-address-phone {
+  color: rgba(245, 230, 204, 0.6);
+  font-size: 0.85rem;
+}
+
+/* Delivery Info */
+.delivery-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
+}
+.delivery-info-row span:first-child {
+  color: rgba(245, 230, 204, 0.5);
+}
+.delivery-info-row span:last-child {
+  color: #f5e6cc;
+  font-weight: 500;
+}
+
 /* Responsive */
 @media (max-width: 991px) {
   .profile-info {
@@ -1130,6 +1351,25 @@ body {
   .profile-order-item {
     flex-wrap: wrap;
     gap: 0.5rem;
+  }
+  /* Order Details Mobile */
+  .order-detail-item {
+    flex-wrap: wrap;
+  }
+  .order-detail-total {
+    width: 100%;
+    text-align: left;
+    margin-top: 0.5rem;
+    padding-left: 76px;
+  }
+  .order-timeline {
+    padding-left: 25px;
+  }
+  .timeline-icon {
+    margin-left: -25px;
+    width: 28px;
+    height: 28px;
+    font-size: 0.7rem;
   }
 }
 
@@ -2748,8 +2988,8 @@ body {
         <button class="btn btn-glow" onclick="showPage('home')">
           <i class="fas fa-home me-2"></i>Continue Shopping
         </button>
-        <button class="btn btn-glass">
-          <i class="fas fa-receipt me-2"></i>View Receipt
+        <button class="btn btn-glass" onclick="showPage('order-details')">
+          <i class="fas fa-receipt me-2"></i>View Details
         </button>
       </div>
     </div>
@@ -2853,7 +3093,7 @@ body {
                 <button class="btn btn-glass btn-sm" onclick="switchProfileTab('orders')">View All</button>
               </div>
               <div class="profile-orders-list">
-                <div class="profile-order-item">
+                <div class="profile-order-item" onclick="showPage('order-details')" style="cursor:pointer;">
                   <div class="order-info">
                     <div class="order-id">#SAF-20250305</div>
                     <div class="order-date">Mar 5, 2026</div>
@@ -2862,7 +3102,7 @@ body {
                   <div class="order-amount">$46.47</div>
                   <div class="order-status delivered">Delivered</div>
                 </div>
-                <div class="profile-order-item">
+                <div class="profile-order-item" onclick="showPage('order-details')" style="cursor:pointer;">
                   <div class="order-info">
                     <div class="order-id">#SAF-20250301</div>
                     <div class="order-date">Mar 1, 2026</div>
@@ -2871,7 +3111,7 @@ body {
                   <div class="order-amount">$28.50</div>
                   <div class="order-status delivered">Delivered</div>
                 </div>
-                <div class="profile-order-item">
+                <div class="profile-order-item" onclick="showPage('order-details')" style="cursor:pointer;">
                   <div class="order-info">
                     <div class="order-id">#SAF-20250220</div>
                     <div class="order-date">Feb 20, 2026</div>
@@ -2916,7 +3156,7 @@ body {
                   <div class="order-card-footer">
                     <span class="order-total">Total: <strong>$46.47</strong></span>
                     <div class="order-actions">
-                      <button class="btn btn-glass btn-sm">Track Order</button>
+                      <button class="btn btn-glass btn-sm" onclick="showPage('order-details')">View Details</button>
                       <button class="btn btn-glow btn-sm">Reorder</button>
                     </div>
                   </div>
@@ -2942,7 +3182,7 @@ body {
                   <div class="order-card-footer">
                     <span class="order-total">Total: <strong>$28.50</strong></span>
                     <div class="order-actions">
-                      <button class="btn btn-glass btn-sm">Track Order</button>
+                      <button class="btn btn-glass btn-sm" onclick="showPage('order-details')">View Details</button>
                       <button class="btn btn-glow btn-sm">Reorder</button>
                     </div>
                   </div>
@@ -2968,7 +3208,7 @@ body {
                   <div class="order-card-footer">
                     <span class="order-total">Total: <strong>$35.00</strong></span>
                     <div class="order-actions">
-                      <button class="btn btn-glass btn-sm">Track Order</button>
+                      <button class="btn btn-glass btn-sm" onclick="showPage('order-details')">View Details</button>
                       <button class="btn btn-glow btn-sm">Cancel</button>
                     </div>
                   </div>
@@ -3184,6 +3424,201 @@ body {
             <i class="fas fa-plus me-2"></i>Add Address
           </button>
         </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== PAGE: ORDER DETAILS ===================== -->
+<div class="page" id="page-order-details">
+  <div style="padding-top:100px;padding-bottom:50px;">
+    <div class="container">
+      <!-- Back Button & Title -->
+      <div class="d-flex align-items-center gap-3 mb-4">
+        <button class="nav-icon-btn" onclick="showPage('profile'); switchProfileTab('orders');" title="Back to Orders">
+          <i class="fas fa-arrow-left"></i>
+        </button>
+        <div>
+          <h4 style="color:#f5e6cc;margin:0;font-family:'Playfair Display',serif;">Order Details</h4>
+          <p style="color:rgba(245,230,204,0.5);margin:0;font-size:0.9rem;">Order #SAF-20250305</p>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <!-- Left Column -->
+        <div class="col-lg-8">
+          <!-- Order Status Timeline -->
+          <div class="glass-card p-4 mb-4">
+            <h6 style="color:#fbbf24;margin-bottom:1.5rem;"><i class="fas fa-truck me-2"></i>Order Status</h6>
+            <div class="order-timeline">
+              <div class="timeline-item completed">
+                <div class="timeline-icon"><i class="fas fa-check"></i></div>
+                <div class="timeline-content">
+                  <div class="timeline-title">Order Placed</div>
+                  <div class="timeline-date">Mar 5, 2026 at 2:30 PM</div>
+                </div>
+              </div>
+              <div class="timeline-item completed">
+                <div class="timeline-icon"><i class="fas fa-check"></i></div>
+                <div class="timeline-content">
+                  <div class="timeline-title">Payment Confirmed</div>
+                  <div class="timeline-date">Mar 5, 2026 at 2:32 PM</div>
+                </div>
+              </div>
+              <div class="timeline-item completed">
+                <div class="timeline-icon"><i class="fas fa-check"></i></div>
+                <div class="timeline-content">
+                  <div class="timeline-title">Order Processed</div>
+                  <div class="timeline-date">Mar 5, 2026 at 4:00 PM</div>
+                </div>
+              </div>
+              <div class="timeline-item completed">
+                <div class="timeline-icon"><i class="fas fa-check"></i></div>
+                <div class="timeline-content">
+                  <div class="timeline-title">Shipped</div>
+                  <div class="timeline-date">Mar 5, 2026 at 6:15 PM</div>
+                </div>
+              </div>
+              <div class="timeline-item active">
+                <div class="timeline-icon"><i class="fas fa-home"></i></div>
+                <div class="timeline-content">
+                  <div class="timeline-title">Delivered</div>
+                  <div class="timeline-date">Mar 5, 2026 at 8:45 PM</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Order Items -->
+          <div class="glass-card p-4">
+            <h6 style="color:#fbbf24;margin-bottom:1.5rem;"><i class="fas fa-box me-2"></i>Order Items (5)</h6>
+            <div class="order-detail-items">
+              <div class="order-detail-item">
+                <div class="order-detail-img">🧁</div>
+                <div class="order-detail-info">
+                  <h6>Saffron Butter Cookies</h6>
+                  <p class="order-detail-variant">Pack Size: 250g</p>
+                  <p class="order-detail-price">$4.99 × 2</p>
+                </div>
+                <div class="order-detail-total">$9.98</div>
+              </div>
+              <div class="order-detail-item">
+                <div class="order-detail-img">🍫</div>
+                <div class="order-detail-info">
+                  <h6>Dark Saffron Truffles</h6>
+                  <p class="order-detail-variant">Box of 12</p>
+                  <p class="order-detail-price">$12.99 × 1</p>
+                </div>
+                <div class="order-detail-total">$12.99</div>
+              </div>
+              <div class="order-detail-item">
+                <div class="order-detail-img">🍰</div>
+                <div class="order-detail-info">
+                  <h6>Royal Saffron Cake</h6>
+                  <p class="order-detail-variant">1kg</p>
+                  <p class="order-detail-price">$24.99 × 1</p>
+                </div>
+                <div class="order-detail-total">$24.99</div>
+              </div>
+              <div class="order-detail-item">
+                <div class="order-detail-img">🍪</div>
+                <div class="order-detail-info">
+                  <h6>Saffron Almond Biscotti</h6>
+                  <p class="order-detail-variant">Pack Size: 200g</p>
+                  <p class="order-detail-price">$5.49 × 1</p>
+                </div>
+                <div class="order-detail-total">$5.49</div>
+              </div>
+              <div class="order-detail-item">
+                <div class="order-detail-img">🥛</div>
+                <div class="order-detail-info">
+                  <h6>Saffron Milk</h6>
+                  <p class="order-detail-variant">500ml</p>
+                  <p class="order-detail-price">$3.99 × 2</p>
+                </div>
+                <div class="order-detail-total">$7.98</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="col-lg-4">
+          <!-- Order Summary -->
+          <div class="glass-card p-4 mb-4">
+            <h6 style="color:#fbbf24;margin-bottom:1.5rem;"><i class="fas fa-receipt me-2"></i>Order Summary</h6>
+            <div class="order-summary-row">
+              <span>Subtotal</span>
+              <span>$61.43</span>
+            </div>
+            <div class="order-summary-row">
+              <span>Delivery Fee</span>
+              <span>$3.00</span>
+            </div>
+            <div class="order-summary-row">
+              <span>Tax (5%)</span>
+              <span>$3.07</span>
+            </div>
+            <div class="order-summary-row">
+              <span>Discount</span>
+              <span style="color:#34d399;">-$21.03</span>
+            </div>
+            <div class="order-summary-divider"></div>
+            <div class="order-summary-row total">
+              <span>Total</span>
+              <span style="color:#fbbf24;font-size:1.3rem;">$46.47</span>
+            </div>
+            <div class="order-payment-method">
+              <i class="fas fa-credit-card"></i>
+              <span>Paid with Credit Card<br><small>**** **** **** 4242</small></span>
+            </div>
+          </div>
+
+          <!-- Delivery Address -->
+          <div class="glass-card p-4 mb-4">
+            <h6 style="color:#fbbf24;margin-bottom:1rem;"><i class="fas fa-map-marker-alt me-2"></i>Delivery Address</h6>
+            <div class="order-address">
+              <div class="order-address-type">Home</div>
+              <p class="order-address-text">123 Gulshan Avenue, House 45, Road 12</p>
+              <p class="order-address-city">Gulshan, Dhaka 1212</p>
+              <p class="order-address-phone"><i class="fas fa-phone me-1"></i>+880 1234-567890</p>
+            </div>
+          </div>
+
+          <!-- Delivery Info -->
+          <div class="glass-card p-4">
+            <h6 style="color:#fbbf24;margin-bottom:1rem;"><i class="fas fa-shipping-fast me-2"></i>Delivery Info</h6>
+            <div class="delivery-info-row">
+              <span>Order Date</span>
+              <span>Mar 5, 2026</span>
+            </div>
+            <div class="delivery-info-row">
+              <span>Delivery Date</span>
+              <span>Mar 5, 2026</span>
+            </div>
+            <div class="delivery-info-row">
+              <span>Delivery Time</span>
+              <span>8:45 PM</span>
+            </div>
+            <div class="delivery-info-row">
+              <span>Order Type</span>
+              <span>Express Delivery</span>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="d-flex gap-2 mt-4">
+            <button class="btn btn-glow flex-fill" onclick="showToast('✅ Reorder successful! Items added to cart.')">
+              <i class="fas fa-redo me-2"></i>Reorder
+            </button>
+            <button class="btn btn-glass" onclick="window.print()">
+              <i class="fas fa-print"></i>
+            </button>
+          </div>
+          <button class="btn btn-outline-danger w-100 mt-2" style="border-color:rgba(244,63,94,0.4);color:#f43f5e;">
+            <i class="fas fa-headset me-2"></i>Need Help?
+          </button>
+        </div>
       </div>
     </div>
   </div>
